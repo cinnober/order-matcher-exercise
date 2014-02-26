@@ -5,22 +5,12 @@ orders with time priority.
 This exercise requires Java 8, gradle 1.10+ and a compatible IDE, for example NetBeans.
 
 ## Instructions
-In an electronic exchange an order book is kept: All
-buy and sell orders are entered into this order book and the prices are
-set according to specific rules. Bids and asks are matched and trades
-occur.
+In an electronic exchange an order book is kept: All buy and sell orders are entered into this order book and the prices are set according to specific rules. Bids and asks are matched and trades occur.
 
-This class keeps an order book, that can determine in real-time the
-current market price and combine matching orders to trades. Each order
-has a quantity and a price.
+This class keeps an order book, that can determine in real-time the current market price and combine matching orders to trades. Each order has a quantity and a price.
 
 *The trading rules:*
-It is a match if a buy order exist at a higher price or equal to a sell
-order in the order book. The quantity of both orders is reduced as much as
-possible. When an order has a quantity of zero it is removed. An order can
-match several other orders if the quantity is large enough and the price is
-correct. The price of the trade is computed as the order that was in the
-order book first (the passive party).
+It is a match if a buy order exist at a higher price or equal to a sell order in the order book. The quantity of both orders is reduced as much as possible. When an order has a quantity of zero it is removed. An order can match several other orders if the quantity is large enough and the price is correct. The price of the trade is computed as the order that was in the order book first (the passive party).
 
 The priority of the orders to match is based on the following:
 
