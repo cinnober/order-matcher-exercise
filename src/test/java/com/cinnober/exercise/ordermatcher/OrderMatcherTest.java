@@ -88,7 +88,15 @@ public class OrderMatcherTest {
             Arrays.asList("BUY 50@9 #1", "SELL 50@10 #3")
         );
     }
-    
+
+    /**
+     * Test order matcher.
+     *
+     * @param inputOrders the orders to add to the order book, not null.
+     * @param expTrades the expected trades, in match order.
+     * @param expRemainingOrders the expected remaining orders after matching all orders.
+     * First buy orders then sell orders, both in priority order.
+     */
     private void testMatch(List<String> inputOrders, List<String> expTrades, List<String> expRemainingOrders) {
         OrderMatcher matcher = new OrderMatcher();
         ArrayList<Trade> trades = new ArrayList<>();
