@@ -36,6 +36,17 @@ public class OrderMatcherTest {
     }
 
     @Test
+    public void testPassiveOrderPriority1() {
+        testMatch(
+            Arrays.asList("BUY 100@10 #1", "BUY 100@10 #2", "BUY 100@11 #3", "BUY 100@9 #4",
+                          "SELL 100@100 #5", "SELL 100@100 #6", "SELL 100@101 #7", "SELL 100@99 #8"),
+            Arrays.asList(),
+            Arrays.asList("BUY 100@11 #3", "BUY 100@10 #1", "BUY 100@10 #2", "BUY 100@9 #4",
+                          "SELL 100@99 #8", "SELL 100@100 #5", "SELL 100@100 #6", "SELL 100@101 #7")
+        );
+    }
+
+    @Test
     public void testMatchPassiveSetsThePrice1() {
         testMatch(
             Arrays.asList("BUY 100@10 #1", "SELL 100@9 #2"),
@@ -86,6 +97,24 @@ public class OrderMatcherTest {
             Arrays.asList("BUY 50@9 #1", "BUY 100@10 #2", "SELL 150@10 #3"),
             Arrays.asList("TRADE 100@10 (#3/#2)"),
             Arrays.asList("BUY 50@9 #1", "SELL 50@10 #3")
+        );
+    }
+
+    @Test
+    public void testMatchPartialPassive1() {
+        testMatch(
+            Arrays.asList("BUY 100@10 #1", "SELL 60@10 #2"),
+            Arrays.asList("TRADE 60@10 (#2/#1)"),
+            Arrays.asList("BUY 40@10 #1")
+        );
+    }
+
+    @Test
+    public void testMatchPartialActive1() {
+        testMatch(
+            Arrays.asList("BUY 60@10 #1", "SELL 100@10 #2"),
+            Arrays.asList("TRADE 60@10 (#2/#1)"),
+            Arrays.asList("SELL 40@10 #2")
         );
     }
 
