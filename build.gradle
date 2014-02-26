@@ -1,0 +1,34 @@
+apply plugin: 'maven'
+buildscript {
+    repositories {
+        maven {
+            url uri("http://nexus.cinnober.com/nexus/content/groups/public/")
+        }
+    }
+    dependencies {
+        classpath group: 'com.cinnober.gradle', name: 'cinnober-java', version: '1.0.0'
+    }
+}
+apply plugin: 'cinnober-java'
+sourceCompatibility = "1.8"
+
+// application packaging
+apply plugin: 'application'
+mainClassName = 'com.cinnober.exercise.ordermatcher.OrderMatcher'
+
+// workaround for bug in gradle with Java 8
+test.scanForTestClasses = false
+test {
+    include '**/*Test.class'
+}
+// show test output on the console
+test {
+    testLogging {
+        events "started","passed","skipped","failed"
+        showStandardStreams = true
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version:'4.11'
+}
