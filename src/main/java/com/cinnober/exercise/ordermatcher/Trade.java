@@ -75,7 +75,7 @@ public class Trade {
 
     @Override
     public String toString() {
-        return "Trade " + quantity + "@" + price + " (#" + activeOrderId + "/#" + passiveOrderId + ")";
+        return "TRADE " + quantity + "@" + price + " (#" + activeOrderId + "/#" + passiveOrderId + ")";
     }
 
     @Override
