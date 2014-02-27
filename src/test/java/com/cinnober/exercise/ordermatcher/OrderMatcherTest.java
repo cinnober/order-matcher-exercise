@@ -38,6 +38,24 @@ public class OrderMatcherTest {
     @Test
     public void testPassiveOrderPriority1() {
         testMatch(
+            Arrays.asList("BUY 100@10 #1", "BUY 100@10 #2", "BUY 100@11 #3", "BUY 100@9 #4"),
+            Arrays.asList(),
+            Arrays.asList("BUY 100@11 #3", "BUY 100@10 #1", "BUY 100@10 #2", "BUY 100@9 #4")
+        );
+    }
+
+    @Test
+    public void testPassiveOrderPriority2() {
+        testMatch(
+            Arrays.asList("SELL 100@100 #5", "SELL 100@100 #6", "SELL 100@101 #7", "SELL 100@99 #8"),
+            Arrays.asList(),
+            Arrays.asList("SELL 100@99 #8", "SELL 100@100 #5", "SELL 100@100 #6", "SELL 100@101 #7")
+        );
+    }
+
+    @Test
+    public void testPassiveOrderPriority3() {
+        testMatch(
             Arrays.asList("BUY 100@10 #1", "BUY 100@10 #2", "BUY 100@11 #3", "BUY 100@9 #4",
                           "SELL 100@100 #5", "SELL 100@100 #6", "SELL 100@101 #7", "SELL 100@99 #8"),
             Arrays.asList(),
