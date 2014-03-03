@@ -14,33 +14,28 @@ It is a match if a buy order exist at a higher price or equal to a sell order in
 
 The priority of the orders to match is based on the following:
 
-  1. On the price that is best for the active order (the one just entered)
-  2. On the time the order was entered (first come first served)
+  1. On the __price__ that is best for the active order (the one just entered)
+  2. On the __time__ the order was entered (first come first served)
+
+There is a skeleton class `com.cinnober.exercise.ordermatcher.OrderMatcher` which contains a few methods that need to be implemented. There are also a few JUnit test cases that currently fails. Implement the methods correctly and they will pass.
+
 
 ## Build and Run ##
-First:
->cd OrderMatcherExercise
+First: `cd OrderMatcherExercise`
 
-Compile:
->gradle build
+Compile: `gradle assemble`
 
-Compile and run unit tests:
->gradle build
+Compile and run unit tests: `gradle build`
 
-Run the application (through gradle):
->gradle run
+Run the application (through gradle): `gradle run`
 
-Package the application:
->gradle installApp
+Package the application: `gradle installApp`
 
-Run the application (standalone):
->./build/install/OrderMatcherExercise/bin/OrderMatcherExercise
+Run the application (standalone): `./build/install/OrderMatcherExercise/bin/OrderMatcherExercise`
 
 ### Eclipse IDE ###
 
-If you want to edit java files from within eclipse, run
->gradle eclipse
-
+If you want to edit java files from within eclipse, run `gradle eclipse`
 and then from within eclipse File -> Import... -> General -> Existing projects into workspace -> Next.. Browse.. browse to where you cloned repo -> Ok.. -> Select All -> Import.
 
 ### Netbeans IDE ###
