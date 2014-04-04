@@ -67,9 +67,9 @@ public class OrderMatcherTest {
     @Test
     public void testSingleSellOrderAndSingleBuyOrderNoMatch1() {
         testMatch(
-            Arrays.asList("BUY 100@10 #1", "SELL 200@10 #1"),
+            Arrays.asList("BUY 100@10 #1", "SELL 100@20 #1"),
             Arrays.asList(),
-            Arrays.asList("BUY 100@10 #1", "SELL 200@10 #1")
+            Arrays.asList("BUY 100@10 #1", "SELL 100@20 #1")
         );
     }
 
