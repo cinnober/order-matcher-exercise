@@ -16,6 +16,10 @@ sourceCompatibility = "1.8"
 apply plugin: 'application'
 mainClassName = 'com.cinnober.exercise.ordermatcher.OrderMatcher'
 
+// capture console input
+run{
+    standardInput = System.in
+}
 // workaround for bug in gradle with Java 8
 test.scanForTestClasses = false
 test {
