@@ -35,6 +35,46 @@ public class OrderMatcherTest {
     public OrderMatcherTest() {
     }
 
+    // --- BASIC ORDER HANDLING ---
+
+    @Test
+    public void testEmpty() {
+        testMatch(
+            Arrays.asList(),
+            Arrays.asList(),
+            Arrays.asList()
+        );
+    }
+
+    @Test
+    public void testSingleBuyOrderNoMatch1() {
+        testMatch(
+            Arrays.asList("BUY 100@10 #1"),
+            Arrays.asList(),
+            Arrays.asList("BUY 100@10 #1")
+        );
+    }
+
+    @Test
+    public void testSingleSellOrderNoMatch1() {
+        testMatch(
+            Arrays.asList("SELL 100@10 #1"),
+            Arrays.asList(),
+            Arrays.asList("SELL 100@10 #1")
+        );
+    }
+
+    @Test
+    public void testSingleSellOrderAndSingleBuyOrderNoMatch1() {
+        testMatch(
+            Arrays.asList("BUY 100@10 #1", "SELL 200@10 #1"),
+            Arrays.asList(),
+            Arrays.asList("BUY 100@10 #1", "SELL 200@10 #1")
+        );
+    }
+
+    // --- ORDER PRIORITIES ---
+
     @Test
     public void testPassiveOrderPriority1() {
         testMatch(
@@ -63,6 +103,8 @@ public class OrderMatcherTest {
                           "SELL 100@99 #8", "SELL 100@100 #5", "SELL 100@100 #6", "SELL 100@101 #7")
         );
     }
+
+    // --- MATCHING AND TRADES ---
 
     @Test
     public void testMatchPassiveSetsThePrice1() {
