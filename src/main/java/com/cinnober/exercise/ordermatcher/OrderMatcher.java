@@ -66,7 +66,7 @@ public class OrderMatcher {
      * @return any trades that were created by this order, not null.
      */
     public List<Trade> addOrder(Order order) {
-        throw new UnsupportedOperationException("Not implemented yet"); // FIXME
+        throw new UnsupportedOperationException("addOrder is not implemented yet"); // FIXME
     }
 
     /**
@@ -79,20 +79,31 @@ public class OrderMatcher {
      * @return all remaining orders in the order book, in priority order, for the specified side, not null.
      */
     public List<Order> getOrders(Side side) {
-        throw new UnsupportedOperationException("Not implemented yet"); // FIXME
+        throw new UnsupportedOperationException("getOrders is not implemented yet"); // FIXME
     }
 
 
 
     public static void main(String... args) throws Exception {
         OrderMatcher matcher = new OrderMatcher();
-        System.out.println("Enter orders in the format: buy|sell <price>@<quantity> [#<id>]");
+        System.out.println("Welcome to the order matcher. Type 'help' for a list of commands.");
         System.out.println();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String line;
-        LOOP: while ((line=reader.readLine()) != null && !(line = line.trim()).equals("")) {
+        LOOP: while ((line=reader.readLine()) != null) {
+            line = line.trim();
             try {
                 switch(line) {
+                    case "help":
+                        System.out.println("Available commands: \n"
+                                + "  buy|sell <price>@<quantity> [#<id>]  - Enter an order.\n"
+                                + "  list                                 - List all remaining orders.\n"
+                                + "  quit                                 - Quit.\n"
+                                + "  help                                 - Show help (this message).\n");
+                        break;
+                    case "":
+                        // ignore
+                        break;
                     case "quit":
                         break LOOP;
                     case "list":
@@ -106,8 +117,11 @@ public class OrderMatcher {
                         break;
                 }
             } catch (IllegalArgumentException e) {
-                System.out.println("Bad input: " + e.getMessage());
+                System.err.println("Bad input: " + e.getMessage());
+            } catch (UnsupportedOperationException e) {
+                System.err.println("Sorry, this command is not supported yet: " + e.getMessage());
             }
         }
+        System.out.println("Good bye!");
     }
 }
