@@ -13,5 +13,5 @@ test-output
 build/
 bin/
 /cbuild
-/.nb-gradle/profiles/private/
+/.nb-gradle
 /.nb-gradle-properties
