@@ -2,7 +2,7 @@
 This is an exercise to implement an order book with continuous matching of limit
 orders with time priority.
 
-This exercise requires Java 8, gradle 1.10+ and a compatible IDE, for example NetBeans.
+This exercise requires Java 8 and gradle 2.3+. Use your favorite IDE or editor.
 
 ## Instructions
 In an electronic exchange an order book is kept: All buy and sell orders are entered into this order book and the prices are set according to specific rules. Bids and asks are matched and trades occur.
@@ -41,3 +41,7 @@ and then from within eclipse File -> Import... -> General -> Existing projects i
 ### Netbeans IDE ###
 
 Install the [Netbeans Gradle Plugin](http://plugins.netbeans.org/plugin/44510/gradle-support) and just open the project (the cloned repo).
+
+### Editors: (X)Emacs / Vi(m) ###
+
+Open the files `src/{main,test}/java/com/cinnober/exercise/ordermatcher/*.java`.

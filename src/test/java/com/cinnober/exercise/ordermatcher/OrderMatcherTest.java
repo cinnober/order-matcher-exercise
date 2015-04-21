@@ -193,12 +193,12 @@ public class OrderMatcherTest {
         inputOrders.stream().map(s -> Order.parse(s)).forEach(o -> trades.addAll(matcher.addOrder(o)));
 
         // verify trades
-        assertEquals(expTrades, trades.stream().map(t -> t.toString()).collect(Collectors.toList()));
+        assertEquals(expTrades, trades.stream().map(Trade::toString).collect(Collectors.toList()));
 
         // verify remaining orders
         assertEquals(expRemainingOrders,
                      Stream.concat(matcher.getOrders(Side.BUY).stream(), matcher.getOrders(Side.SELL).stream()).
-                             map(o -> o.toString()).collect(Collectors.toList()));
+                             map(Order::toString).collect(Collectors.toList()));
     }
 
 }

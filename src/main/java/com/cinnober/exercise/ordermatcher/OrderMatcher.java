@@ -96,7 +96,7 @@ public class OrderMatcher {
                 switch(line) {
                     case "help":
                         System.out.println("Available commands: \n"
-                                + "  buy|sell <price>@<quantity> [#<id>]  - Enter an order.\n"
+                                + "  buy|sell <quantity>@<price> [#<id>]  - Enter an order.\n"
                                 + "  list                                 - List all remaining orders.\n"
                                 + "  quit                                 - Quit.\n"
                                 + "  help                                 - Show help (this message).\n");
@@ -108,12 +108,12 @@ public class OrderMatcher {
                         break LOOP;
                     case "list":
                         System.out.println("BUY:");
-                        matcher.getOrders(Side.BUY).stream().map(o -> o.toString()).forEach(System.out::println);
+                        matcher.getOrders(Side.BUY).stream().map(Order::toString).forEach(System.out::println);
                         System.out.println("SELL:");
-                        matcher.getOrders(Side.SELL).stream().map(o -> o.toString()).forEach(System.out::println);
+                        matcher.getOrders(Side.SELL).stream().map(Order::toString).forEach(System.out::println);
                         break;
                     default: // order
-                        matcher.addOrder(Order.parse(line)).stream().map(t -> t.toString()).forEach(System.out::println);
+                        matcher.addOrder(Order.parse(line)).stream().map(Trade::toString).forEach(System.out::println);
                         break;
                 }
             } catch (IllegalArgumentException e) {
