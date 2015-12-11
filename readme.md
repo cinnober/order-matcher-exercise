@@ -21,7 +21,7 @@ There is a skeleton class `com.cinnober.exercise.ordermatcher.OrderMatcher` whic
 
 
 ## Build and Run ##
-First: `cd OrderMatcherExercise`
+First: `cd order-matcher-exercise`
 
 Compile: `gradle assemble`
 
@@ -31,7 +31,7 @@ Run the application (through gradle): `gradle run`
 
 Package the application: `gradle installApp`
 
-Run the application (standalone): `./build/install/OrderMatcherExercise/bin/OrderMatcherExercise`
+Run the application (standalone): `./build/install/order-matcher-exercise/bin/order-matcher-exercise`
 
 ### Eclipse IDE ###
 
