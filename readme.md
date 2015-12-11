@@ -2,7 +2,7 @@
 This is an exercise to implement an order book with continuous matching of limit
 orders with time priority.
 
-This exercise requires Java 8 and gradle 2.3+. Use your favorite IDE or editor.
+This exercise requires git, Java 8 and gradle 2.3+. Use your favorite IDE or editor.
 
 ## Instructions
 In an electronic exchange an order book is kept: All buy and sell orders are entered into this order book and the prices are set according to specific rules. Bids and asks are matched and trades occur.
